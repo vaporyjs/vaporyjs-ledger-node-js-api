@@ -1,9 +1,9 @@
-[![npm version](https://badge.fury.io/js/ledgerco.svg)](https://www.npmjs.com/package/ledgerco)
+[![npm version](https://badge.fury.io/js/ledgerco.svg)](https://www.npmjs.com/package/@vaporyjs/ledgerco)
 
 # ledger-node-js-api
 Node and browser communication APIs for Ledger Nano / Nano S / Blue application 
 
-This package defines basic communication methods for Ledger Personal Security Devices products as well as bindings for the Bitcoin and Ethereum APIs.
+This package defines basic communication methods for Ledger Personal Security Devices products as well as bindings for the Bitcoin and Vapory APIs.
 
 When using in a browser, make sure to set up "Browser mode" in the application settings on the device if available.
 
@@ -129,7 +129,7 @@ btc.signMessageNew_async("44'/60'/0'/0'/0", Buffer.from("test").toString("hex"))
 }).fail(function(ex) {console.log(ex);});
 ```
 
-## Using with Ethereum 
+## Using with Vapory 
 
 Create an application object after opening the device
 
