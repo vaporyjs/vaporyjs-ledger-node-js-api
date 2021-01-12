@@ -134,13 +134,13 @@ btc.signMessageNew_async("44'/60'/0'/0'/0", Buffer.from("test").toString("hex"))
 Create an application object after opening the device
 
 ```javascript
-var eth = new ledger.eth(comm);
+var vap = new ledger.vap(comm);
 ```
 
 You can retrieve a public key and an address given its BIP 32 path
 
 ```javascript
-eth.getAddress_async("44'/60'/0'/0'/0").then(
+vap.getAddress_async("44'/60'/0'/0'/0").then(
      function(result) { console.log(result);}).fail(
      function(error) { console.log(error); });
 ```
@@ -148,16 +148,16 @@ eth.getAddress_async("44'/60'/0'/0'/0").then(
 You can sign a transaction and retrieve v, r, s given the raw transaction and the BIP 32 path of the account to sign 
 
 ```javascript
-eth.signTransaction_async("44'/60'/0'/0'/0", "e8018504e3b292008252089428ee52a8f3d6e5d15f8b131996950d7f296c7952872bd72a2487400080").then(function(result) {
+vap.signTransaction_async("44'/60'/0'/0'/0", "e8018504e3b292008252089428ee52a8f3d6e5d15f8b131996950d7f296c7952872bd72a2487400080").then(function(result) {
 		console.log(result);
 }).fail(function(ex) {console.log(ex);});
 
 ```
 
-You can sign a message according to eth_sign RPC call and retrieve v, r, s given the message and the BIP 32 path of the account to sign.
+You can sign a message according to vap_sign RPC call and retrieve v, r, s given the message and the BIP 32 path of the account to sign.
 
 ```javascript
-eth.signPersonalMessage_async("44'/60'/0'/0'/0", Buffer.from("test").toString("hex")).then(function(result) {
+vap.signPersonalMessage_async("44'/60'/0'/0'/0", Buffer.from("test").toString("hex")).then(function(result) {
     var v = result['v'] - 27;
     v = v.toString(16);
     if (v.length < 2) {
